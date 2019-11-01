@@ -20,7 +20,10 @@ console.log(user.username);
 		
 		if(status==1){
 			res.cookie('username', req.body.uname);
-			res.redirect('/home');	
+			res.redirect('/home');}	
+			else if(status==0){
+			res.cookie('username', req.body.uname);
+			res.redirect('/adminhome');	
 		}else if(status==2) {
 			res.cookie('username', req.body.uname);
 			res.redirect('/home');	}

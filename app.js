@@ -4,8 +4,8 @@ var ejs  		= require('ejs');
 var bodyParse  	= require('body-parser');
 var exSession  	= require('express-session');
 var cookieParser= require('cookie-parser');
-var home  		= require('./controllers/home');
-
+var adminhome  		= require('./controllers/adminhome');
+var admin  		= require('./controllers/admin');
 var login  		= require('./controllers/login');
 
  const path = require('path');
@@ -18,10 +18,12 @@ app.set('view engine', 'ejs');
 app.use(bodyParse.urlencoded({extended:false}));
 app.use(exSession({secret:"my top secret value", saveUninitialized:true, resave:false}));
 app.use(cookieParser());
-app.use('/home', home);
-app.use('/login', login);
-
 app.use(express.static(path.join(__dirname,'public')));
+
+app.use('/adminhome', adminhome);
+app.use('/login', login);
+app.use('/admin', admin);
+
 
 
 
