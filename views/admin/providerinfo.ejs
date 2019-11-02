@@ -113,20 +113,20 @@
 
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Full Name</label>
+                                                <label style="font-weight:bold;">UserName</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                Jamshaid Kamran
+                                                <%= user[0].username %>
                                             </div>
                                         </div>
                                         <hr />
 
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Birth Date</label>
+                                                <label style="font-weight:bold;">Email</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                March 22, 1994.
+                                                 <%= user[0].email %>
                                             </div>
                                         </div>
                                         <hr />
@@ -134,36 +134,42 @@
                                         
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
+                                                <label style="font-weight:bold;">Phone</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                Something
+                                                 <%= user[0].phone %>
                                             </div>
                                         </div>
                                         <hr />
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
+                                                <label style="font-weight:bold;">Gender</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                Something
+                                                 <%= user[0].gender %>
                                             </div>
                                         </div>
                                         <hr />
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
+                                                <label style="font-weight:bold;">city</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                Something
+                                                <%= user[0].city %>
                                             </div>
                                         </div>
                                         <hr />
-
+                                           <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">skill</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                 <%= user[0].skill %>  
+                                            </div>
+                                        </div>
+                                        <hr />
                                     </div>
-                                    <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                        Facebook, Google, Twitter Account that are connected to this account
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

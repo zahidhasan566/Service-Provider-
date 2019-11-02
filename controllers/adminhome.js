@@ -4,9 +4,9 @@ var router = express.Router();
 
 router.get('/', function(req, res){
 
-		var sql = "select * from user";
+		var sql = "select * from user " ;
 		db.getResults(sql, function(results){
-			
+		
 			if(req.cookies['username'] != null){
 				res.render('adminhome/index', {user: results});
 			}else{

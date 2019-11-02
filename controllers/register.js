@@ -30,7 +30,7 @@ router.post('/servicereg', function(req, res){
 	userModel.registersp(user, function(status){
 		
 		if(status){
-			var sql = "select * from user where phone="+user.phone;
+			var sql = "select userid from user where phone="+user.phone;
 		db.getResults(sql, function(results){
 			console.log(results[0].userid);
 			console.log(user.skill);
@@ -68,7 +68,7 @@ router.post('/customerreg', function(req, res){
 	userModel.registercp(user, function(status){
 		
 		if(status){
-			var sql = "select * from user where phone="+user.phone;
+			var sql = "select userid from user where phone="+user.phone;
 		db.getResults(sql, function(results){
 			console.log(results[0].userid);
 			console.log(user.location);

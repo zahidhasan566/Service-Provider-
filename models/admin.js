@@ -4,9 +4,9 @@ module.exports={
 
 	getById: function(id, callback){
 console.log(id);
-		var sql = "select * from user where userid="+id;
+		var sql = "select user.userid, user.username , user.email, user.phone, user.gender, user.city, serviceprovider.skill FROM user join serviceprovider on user.userid='"+id+"'  and serviceprovider.userid='"+id+"' " ; 
 		db.getResults(sql, function(result){
-
+			
 			if( result.length > 0 ){
 				
 				callback(result);

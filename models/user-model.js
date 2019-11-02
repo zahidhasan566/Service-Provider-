@@ -14,6 +14,19 @@ module.exports={
 			}
 		});
 	},
+
+	getId: function(username, callback){
+
+		var sql = "select userid from user where username='"+username+"'";
+		db.getResults(sql, function(result){
+
+			if(result.length > 0 ){
+				callback(result);
+			}else{
+				callback([]);
+			}
+		});
+	},
 	
 	validate: function(user, callback){
 		var sql = "select * from user where username='"+user.username+"' and password='"+user.password+"'";
@@ -29,8 +42,8 @@ module.exports={
 		});
 	},
 	
-	getAll : function(callback){
-		var sql = "select * from user where type= 2";
+	getAll : function(user, callback){
+		var sql = "select * from user where username='"+user.username+"' and password='"+user.password+"' ";
 
 		db.getResults(sql, function(results){
 
