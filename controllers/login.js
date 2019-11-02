@@ -25,13 +25,13 @@ router.post('/', function (req, res) {
 			userModel.getId(req.session.username, function (result) {
 				req.session.userid = result[0].userid;
 				console.log(req.session.userid);
-				//console.log(req.cookie['userid']);
 
+				//console.log(req.cookie['userid']);
 			});
 		}
-		else if (status == 0) {
+		else if (status == 4) {
 			req.session.username = req.body.username;
-			userModel.getId(req.cookies['username'], function (result) {
+			userModel.getId(req.session.username, function (result) {
 				req.session.userid = result[0].userid;
 				console.log(req.session.userid);
 
@@ -40,17 +40,18 @@ router.post('/', function (req, res) {
 
 			res.redirect('/adminhome');
 		} else if (status == 2) {
-			res.cookie('username', req.body.username);
-			userModel.getId(req.cookies['username'], function (result) {
+			req.session.username = req.body.username;
+			userModel.getId(req.session.username, function (result) {
 				//	console.log(result[0].userid);
 				req.session.userid = result[0].userid;
-				//console.log(req.session.userid);
-				req.cookie('userid', result[0].userid);
+				console.log(req.session.userid);
+
 				//console.log(req.cookie['userid']);
 			});
-			res.redirect('/customer-home');
+			res.redirect('/customer');
 		}
 		else {
+
 			res.send('invalid username/password');
 		}
 
