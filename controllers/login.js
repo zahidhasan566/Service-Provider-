@@ -3,31 +3,60 @@ var userModel = require('./../models/user-model');
 
 var router = express.Router();
 
-router.get('/', function(req, res){
+router.get('/', function (req, res) {
 	res.render('login/index');
 });
 
-router.post('/', function(req, res){
+router.post('/', function (req, res) {
 
-	
+
 
 	var user = {
 		username: req.body.username,
 		password: req.body.password
 	}
-console.log(user.username);
-	userModel.validate(user, function(status){
-		
-		if(status==1){
-			res.cookie('username', req.body.uname);
-			res.redirect('/home');	
-		}else if(status==2) {
-			res.cookie('username', req.body.uname);
-			res.redirect('/home');	}
-			else{
+	//console.log(user.username);
+	userModel.validate(user, function (status) {
+
+		if (status == 1) {
+
+			req.session.username = req.body.username;
+			res.redirect('/home');
+			userModel.getId(req.session.username, function (result) {
+				req.session.userid = result[0].userid;
+				console.log(req.session.userid);
+				//console.log(req.cookie['userid']);
+
+			});
+		}
+		else if (status == 0) {
+			req.session.username = req.body.username;
+			userModel.getId(req.cookies['username'], function (result) {
+				req.session.userid = result[0].userid;
+				console.log(req.session.userid);
+
+				//console.log(req.cookie['userid']);
+			});
+
+			res.redirect('/adminhome');
+		} else if (status == 2) {
+			res.cookie('username', req.body.username);
+			userModel.getId(req.cookies['username'], function (result) {
+				//	console.log(result[0].userid);
+				req.session.userid = result[0].userid;
+				//console.log(req.session.userid);
+				req.cookie('userid', result[0].userid);
+				//console.log(req.cookie['userid']);
+			});
+			res.redirect('/customer-home');
+		}
+		else {
 			res.send('invalid username/password');
 		}
+
+
 	});
+
 
 });
 

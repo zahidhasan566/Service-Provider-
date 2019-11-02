@@ -1,13 +1,15 @@
-//DECLARATION
 var express = require('express');
 var ejs = require('ejs');
 var bodyParse = require('body-parser');
 var exSession = require('express-session');
 var cookieParser = require('cookie-parser');
+var adminhome = require('./controllers/adminhome');
+var admin = require('./controllers/admin');
+var login = require('./controllers/login');
+var logout = require('./controllers/logout');
+var register = require('./controllers/register');
 var home = require('./controllers/home');
 var customer = require('./controllers/customer');
-var login = require('./controllers/login');
-
 const path = require('path');
 var app = express();
 
@@ -22,6 +24,12 @@ app.use('/home', home);
 app.use('/login', login);
 app.use('/customer', customer);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/adminhome', adminhome);
+app.use('/admin', admin);
+app.use('/register', register);
+app.use('/logout', logout);
+
+
 
 
 
