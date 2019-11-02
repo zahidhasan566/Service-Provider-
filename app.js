@@ -7,8 +7,9 @@ var cookieParser= require('cookie-parser');
 var adminhome  		= require('./controllers/adminhome');
 var admin  		= require('./controllers/admin');
 var login  		= require('./controllers/login');
-
- const path = require('path');
+var register  		= require('./controllers/register');
+var home		= require('./controllers/home');
+const path		 = require('path');
 var app 		= express();
 
 //CONGIFURATION
@@ -23,7 +24,8 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use('/adminhome', adminhome);
 app.use('/login', login);
 app.use('/admin', admin);
-
+app.use('/register', register);
+app.use('/home', home)
 
 
 
