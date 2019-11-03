@@ -75,7 +75,7 @@
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           
             <div class="text text-center">
-              <h1 class="mb-4"> <br>Service Provider Information </h1>
+              <h1 class="mb-4"> <br>Your profile </h1>
 
              
             </div>
@@ -94,7 +94,7 @@
         <div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
             <span class="subheading"></span>
-            <h2 class="mb-2"> Service Provider -- <%= user[0].username %>  </h2>
+            <h2 class="mb-2">  <%= user[0].username %>  </h2>
           </div>
         </div>
       </div>
@@ -103,8 +103,9 @@
     <div class="list-group" align="center" >
     
 
-
+<form method="post">
 <div class="row">
+       
                             <div class="col-12">
                                
                                 <div class="tab-content ml-1" id="myTabContent">
@@ -115,8 +116,8 @@
                                             <div class="col-sm-3 col-md-2 col-5">
                                                 <label style="font-weight:bold;">UserName</label>
                                             </div>
-                                            <div class="col-md-8 col-6">
-                                                <%= user[0].username %>
+                                            <div class="col-md-8 col-6"><input type="text" name="username" value="<%=user[0].username%>">
+                                               
                                             </div>
                                         </div>
                                         <hr />
@@ -126,7 +127,7 @@
                                                 <label style="font-weight:bold;">Email</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                 <%= user[0].email %>
+                                                    <input type="text" name="email" value="<%=user[0].email%>">
                                             </div>
                                         </div>
                                         <hr />
@@ -137,7 +138,7 @@
                                                 <label style="font-weight:bold;">Phone</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                 <%= user[0].phone %>
+                                                    <input type="text" name="phone" value="<%=user[0].phone%>">
                                             </div>
                                         </div>
                                         <hr />
@@ -146,7 +147,7 @@
                                                 <label style="font-weight:bold;">Gender</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                 <%= user[0].gender %>
+                                                    <input type="text" name="gender" value="<%=user[0].gender%>">
                                             </div>
                                         </div>
                                         <hr />
@@ -155,16 +156,16 @@
                                                 <label style="font-weight:bold;">city</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                <%= user[0].city %>
+                                                    <input type="text" name="city" value="<%=user[0].city%>">
                                             </div>
                                         </div>
                                         <hr />
                                            <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">skill</label>
+                                                <label style="font-weight:bold;">Password</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                 <%= user[0].skill %>  
+                                                    <input type="text" name="password" value="<%=user[0].password%>">
                                             </div>
                                         </div>
                                         <hr />
@@ -174,14 +175,18 @@
                             </div>
                         </div>
 
-
-                    
-    
+                        
+          
+                        <div class="col-md-6">
+                                <input type="submit" name="submit" value="Save">
+                        </div>
+                   
+                    </div>
 
    
     
 </div>
-
+</form>
 
 <script src="/js/jquery.min.js"></script>
   <script src="/js/jquery-migrate-3.0.1.min.js"></script>

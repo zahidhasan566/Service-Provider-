@@ -75,7 +75,7 @@
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           
             <div class="text text-center">
-              <h1 class="mb-4"> <br>Service Provider Information </h1>
+              <h1 class="mb-4"> <br>Your profile </h1>
 
              
             </div>
@@ -94,7 +94,7 @@
         <div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
             <span class="subheading"></span>
-            <h2 class="mb-2"> Service Provider -- <%= user[0].username %>  </h2>
+            <h2 class="mb-2">  <%= user[0].username %>  </h2>
           </div>
         </div>
       </div>
@@ -105,6 +105,7 @@
 
 
 <div class="row">
+       
                             <div class="col-12">
                                
                                 <div class="tab-content ml-1" id="myTabContent">
@@ -161,10 +162,10 @@
                                         <hr />
                                            <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">skill</label>
+                                                <label style="font-weight:bold;">Password</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                 <%= user[0].skill %>  
+                                                 <%= user[0].password %>  
                                             </div>
                                         </div>
                                         <hr />
@@ -174,9 +175,13 @@
                             </div>
                         </div>
 
-
-                    
-    
+                        
+          
+                        <div class="col-md-6">
+                                <a href="../admin/update/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Update</h4> <br> </a>
+                        </div>
+                   
+                    </div>
 
    
     

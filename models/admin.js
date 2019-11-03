@@ -4,19 +4,38 @@ module.exports={
 
 	getById: function(id, callback){
 console.log(id);
-		var sql = "select * from user where userid="+id;
-		db.getResults(sql, function(result){
 
-			if( result.length > 0 ){
+	console.log(id);
+			var sql = "select user.userid, user.username , user.email, user.phone, user.gender, user.city, serviceprovider.skill FROM user join serviceprovider on user.userid='"+id+"'  and serviceprovider.userid='"+id+"' " ; 
+			db.getResults(sql, function(result){
 				
-				callback(result);
-
-			}else{
-				callback([]);
-			}
-		});
-	},
+				if( result.length > 0 ){
+					
+					callback(result);
 	
+				}else{
+					callback([]);
+				}
+			});
+		},
+	
+		getupdate: function(id, callback){
+			console.log(id);
+			
+				console.log(id);
+						var sql = "select * from user where userid='"+id+"' " ; 
+						db.getResults(sql, function(result){
+							
+							if( result.length > 0 ){
+								
+								callback(result);
+				
+							}else{
+								callback([]);
+							}
+						});
+					},
+				
 	
 	
 	getprovider : function(callback){
@@ -31,7 +50,22 @@ console.log(id);
 			}
 		});
 	},
+
+	getprofile : function(callback){
+		var sql = "select * from user where type= 4";
+
+		db.getResults(sql, function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 	
+
+
 	insert : function(user, callback){
 	    var sql = "insert into user values('','" + user.ename + "','" + user.cname + "','" + user.contact + "','" + user.username + "', '" + user.password + "')";
 		db.execute(sql, function(status){
@@ -39,7 +73,10 @@ console.log(id);
 		});
 	},
 	update : function(user, callback){
-	    var sql = "update user set ename='" + user.ename + "', cname='" + user.cname + "', contact='" + user.contact + "', username='" + user.username + "', password='" + user.password + "' where id=" + user.id; db.execute(sql, function (status) {
+		
+		var sql = "update user set username='" + user.username + "', email='" + user.email + "', phone='" + user.phone + "', password='" + user.password + "', gender='" + user.gender + "', city='" + user.city + "' where userid=" + user.id;
+
+		 db.execute(sql, function (status) {
 			callback(status);
 		});
 	},

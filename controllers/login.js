@@ -21,13 +21,14 @@ router.post('/', function (req, res) {
 		if (status == 1) {
 
 			req.session.username = req.body.username;
-			res.redirect('/home');
+			
 			userModel.getId(req.session.username, function (result) {
 				req.session.userid = result[0].userid;
 				console.log(req.session.userid);
 
 				//console.log(req.cookie['userid']);
 			});
+			res.redirect('/home');
 		}
 		else if (status == 4) {
 			req.session.username = req.body.username;
@@ -48,12 +49,16 @@ router.post('/', function (req, res) {
 
 				//console.log(req.cookie['userid']);
 			});
-			res.redirect('/customer');
+		res.redirect('/customer');
 		}
 		else {
 
 			res.send('invalid username/password');
+
+			
 		}
+
+	
 
 
 	});

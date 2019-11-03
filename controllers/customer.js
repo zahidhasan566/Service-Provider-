@@ -8,6 +8,9 @@ router.get('/', function (req, res) {
 });
 
 
+router.get('/appointment', function (req, res) {
+    res.render('appointment/index.ejs');
+});
 
 
 
