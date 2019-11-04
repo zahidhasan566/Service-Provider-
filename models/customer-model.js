@@ -17,6 +17,18 @@ module.exports = {
     },
 
 
+	getprofile : function(id, callback){
+		var sql = "select * from user where type= 4";
+
+		db.getResults(sql, function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 
 
     validate: function (user, callback) {

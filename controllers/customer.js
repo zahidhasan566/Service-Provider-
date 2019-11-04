@@ -12,7 +12,14 @@ router.get('/appointment', function (req, res) {
     res.render('appointment/index.ejs');
 });
 
+router.get('/profile', function(req, res){
 
+	userModel.getprofile(id, function(results){
+
+		res.render('customer-home/profile', {user: results});		
+	});
+
+});
 
 
 module.exports = router;
