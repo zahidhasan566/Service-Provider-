@@ -78,7 +78,53 @@ module.exports = {
 				callback([]);
 			}
 		});
-	},
+    },
+    
+    getprofile : function(id,callback){
+		var sql = "select * from user where userid="+id;
+
+		db.getResults(sql, function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+    },
+    
+    getupdate: function(id, callback){
+        console.log(id);
+        
+            console.log(id);
+                    var sql = "select * from user where userid='"+id+"' " ; 
+                    db.getResults(sql, function(result){
+                        
+                        if( result.length > 0 ){
+                            
+                            callback(result);
+            
+                        }else{
+                            callback([]);
+                        }
+                    });
+                },
+
+                update : function(user, callback){
+		
+                    var sql = "update user set username='" + user.username + "', email='" + user.email + "', phone='" + user.phone + "', password='" + user.password + "', gender='" + user.gender + "', city='" + user.city + "' where userid=" + user.id;
+            
+                     db.execute(sql, function (status) {
+                        callback(status);
+                    });
+                },
+
+                disable : function(id, callback){
+                    var sql = "delete from user where userid="+id;
+                    db.execute(sql, function(status){
+                        callback(status);
+                    });
+                },
 
     
 

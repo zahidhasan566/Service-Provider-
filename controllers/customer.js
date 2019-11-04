@@ -127,6 +127,59 @@ router.get('/upcomming/pay', function(req, res){
 
 });
 
+router.get('/profile', function(req, res){
+
+	userModel.getprofile(req.cookies['userid'],function(results){
+
+		res.render('customer-home/profile', {user: results});		
+	});
+
+});
+
+router.get('/update', function(req, res){
+
+	userModel.getupdate(req.cookies['userid'], function(results){
+		res.render('customer-home/updateprofile', {user: results});		
+	});
+
+});
+
+router.post('/update/', function(req, res){
+	
+	var user = {
+		username: req.body.username,
+		phone: req.body.phone,
+		password: req.body.password,
+		email: req.body.email,
+		gender: req.body.gender,
+		city: req.body.city,
+		id: req.cookies['userid']
+		
+	};
+	userModel.update(user, function(status){
+		console.log(status);
+		if(status){
+			res.redirect('/customer/profile');
+		}else{
+			res.redirect('/customer');
+		}
+	});
+});
+
+router.get('/profile/delete', function(req, res){
+
+	userModel.disable(req.cookies['userid'], function(status){
+		if(status)
+		{
+			res.redirect('/login');
+		}
+		else
+			res.send("delete error");
+			
+	});
+
+});
+
 
 
 module.exports = router;
