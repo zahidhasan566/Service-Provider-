@@ -1,5 +1,6 @@
 var express = require('express');
 var userModel = require('./../models/customer-model');
+var serviceModel = require('./../models/serviceprovider');
 
 var router = express.Router();
 
@@ -32,8 +33,14 @@ router.get('/providerinfo/:id', function(req, res){
 
 router.get('/request-appointment/:id', function(req, res){
 
-	userModel.getupdate(req.params.id, function(results){
-		res.render('admin/updateprofile', {user: results});		
+	serviceModel.getById(req.params.id, function(results){
+        //console.log(results[0].servicename);
+        if(result="")
+        {
+            res.redirect('../customer-home/index');
+        }
+        else
+		    res.render('appointment/index', {user: results});		
 	});
 
 });
