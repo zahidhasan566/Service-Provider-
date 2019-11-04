@@ -6,7 +6,7 @@ module.exports = {
         console.log(id);
         
             console.log(id);
-                    var sql = "select * from feedback where userid="+id; 
+                    var sql = "select * from feedback where receiver="+id; 
                     db.getResults(sql, function(result){
                         
                         if( result.length > 0 ){

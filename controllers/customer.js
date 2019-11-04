@@ -224,6 +224,28 @@ router.post('/give/feedback/:id', function(req, res){
 	});
 });
 
+router.get('/feedback', function(req, res){
+
+	feedbackModel.getById(req.cookies['userid'],function(results){
+
+		res.render('feedback/feedback', {user: results});		
+	});
+
+});
+
+router.get('/service-feedback/:id', function(req, res){
+
+	
+	feedbackModel.getById(req.params.id,function(results){
+
+		res.render('feedback/feedback', {user: results});		
+	});
+	
+		
+
+
+});
+
 
 module.exports = router;
 
