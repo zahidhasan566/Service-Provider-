@@ -30,7 +30,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="#">Uptown</a>
+        <a class="navbar-brand" href="/customer">Uptown</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
           aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
@@ -38,34 +38,25 @@
   
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="/customer" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="customer/profile" class="nav-link">Profile</a></li>
             <li class="nav-item active">
               <div class="bs-example">
                 <div class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Userlist</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Appointments</a>
                   <div class="dropdown-menu">
-                    <a href="../admin/serviceprovider" class="dropdown-item">Service Providers</a>
-                    <a href="../admin/customer" class="dropdown-item">Customers</a>
+                    <a href="../customer/requested" class="dropdown-item">Requested Appointments</a>
+                    <a href="../customer/upcomming" class="dropdown-item">Upcomming Appointments</a>
+                    <a href="../customer/completed" class="dropdown-item">Completed Appointments</a>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="nav-item"><a href="admin/profile" class="nav-link">Profile</a></li>
-            <li class="nav-item"> <a href="agent.html" class="nav-link">Requests</a></li>
-            <li class="nav-item">
-              <div class="bs-example">
-                <div class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Feedbacks</a>
-                    <a href="#" class="dropdown-item">Messages</a>
-                    <a href="#" class="dropdown-item">User History</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-           
+            
+            <li class="nav-item"><a href="../customer/serviceprovider" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="customer/notice" class="nav-link">Notice</a></li>
+            <li class="nav-item"><a href="customer/feedback" class="nav-link">Feedback</a></li>
             <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
-  
           </ul>
         </div>
       </div>
