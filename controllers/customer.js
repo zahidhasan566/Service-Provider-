@@ -2,6 +2,8 @@ var express = require('express');
 var userModel = require('./../models/customer-model');
 var serviceModel = require('./../models/serviceprovider');
 var appointmentModel = require('./../models/appointment-model');
+var noticeModel = require('./../models/notice-model');
+
 
 var router = express.Router();
 
@@ -176,6 +178,15 @@ router.get('/profile/delete', function(req, res){
 		else
 			res.send("delete error");
 			
+	});
+
+});
+
+router.get('/notice', function(req, res){
+
+	noticeModel.getById(req.cookies['userid'],function(results){
+
+		res.render('customer-home/notice', {user: results});		
 	});
 
 });
