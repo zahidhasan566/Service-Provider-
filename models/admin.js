@@ -150,6 +150,91 @@ console.log(id);
 						}
 					});
 				},
+
+
+				getfeed : function(callback){
+					var sql = "select * from feedback";
+			
+					db.getResults(sql, function(results){
+						
+						if(results.length > 0 ) {
+							callback(results);
+						}else{
+							callback([]);
+						}
+					});
+				},
+
+				getmessage : function(callback){
+					var sql = "select * from message";
+			
+					db.getResults(sql, function(results){
+						
+						if(results.length > 0 ) {
+							callback(results);
+						}else{
+							callback([]);
+						}
+					});
+				},
+
+				gethistory : function(callback){
+					var sql = "select user.userid, user.username, appointment.location ,appointment.time , appointment.pay, service.servicename FROM user join appointment on user.userid=appointment.cid join service on service.serviceid=appointment.serviceid ";
+			
+					db.getResults(sql, function(results){
+						
+						if(results.length > 0 ) {
+							callback(results);
+						}else{
+							callback([]);
+						}
+					});
+				},
+				
+				gettrans : function(callback){
+var sql = "select user.username,account.cid, account.totalamount, account.provideramount, account.comamount ,service.servicename FROM user join account on user.userid=account.cid join service on service.serviceid=account.serviceid ";
+					;
+			
+					db.getResults(sql, function(results){
+						
+						if(results.length > 0 ) {
+							callback(results);
+						}else{
+							callback([]);
+						}
+					});
+				},
+
+				searchpro: function(user, callback){
+					console.log(user.ename);
+			
+					var sql = "select * from user where username like '%" +user.ename+"%' and type=1";
+					db.getResults(sql, function(result){
+			
+						if(result.length > 0 ){
+							callback(result);
+						}else{
+							callback([]);
+						}
+					});
+				},
+
+				searchcus: function(user, callback){
+					console.log(user.ename);
+			
+					var sql = "select * from user where username like '%" +user.ename+"%' and type=2";
+					db.getResults(sql, function(result){
+			
+						if(result.length > 0 ){
+							callback(result);
+						}else{
+							callback([]);
+						}
+					});
+				},
+
+
+
 }
 
 

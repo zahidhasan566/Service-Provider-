@@ -97,29 +97,80 @@
         <div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
             <span class="subheading"></span>
-            <h2 class="mb-2">Your Customers List </h2>
+            <h2 class="mb-2">User History </h2>
           </div>
         </div>
       </div>
-      <form method="post" action="../admin/searchcus" class="search-location mt-md-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 align-items-end">
-            <div class="form-group">
-              <div class="form-field">
-                <input type="text" class="form-control" placeholder="Searchs" name="search">
-                <button><span class="ion-ios-search"  ></span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
     </section>
 
 
    <div class="list-group" align="center" >
     <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+      <table align="center">
+     
+     <tr>
+
+       <th><div class="col-sm-3 col-md-2 col-5">
+            <label style="font-weight:bold;">Customer name</label>
+        </div> </th>
+
+        <th><div class="col-sm-3 col-md-2 col-5">
+                <label style="font-weight:bold;">Service</label>
+            </div> </th>
+
+      <th> <div class="col-sm-3 col-md-2 col-5">
+          <label style="font-weight:bold;">Location</label>
+      </div></th> 
+
+
+
+     <th> <div class="col-sm-3 col-md-2 col-5">
+        <label style="font-weight:bold;">Time</label>
+    </div>
+      </th> 
+
+      <th> <div class="col-sm-3 col-md-2 col-5">
+            <label style="font-weight:bold;">Payment</label>
+        </div>
+          </th> 
+
+
+      </tr>
+    <hr />
     <% for(var i=0; i< user.length; i++){ %>
- <a href="../admin/customerinfo/<%= user[i].userid %>" class="list-group-item list-group-item-action"><h4><%= user[i].username %></h4> <br> </a>
+      <tr>
+
+        <td> <div class="col-md-8 col-6">
+              <%= user[i].username %>
+         </div></td>
+     
+         <td> <div class="col-md-8 col-6">
+                <%= user[i].servicename %>
+           </div></td>
+     
+     <td> <div class="col-md-8 col-6">
+           <%= user[i].location %>
+      </div></td>
+
+ <td> 
+    <div class="col-md-8 col-6">
+         <%= user[i].time %>
+    </div>
+  </td>
+
+  <td> <% if( user[i].pay==1 ){%>
+        <div class="col-md-8 col-6">
+                <label style="font-weight:bold;">Paid</label>
+        </div>
+        <% } else { %>
+            <div class="col-md-8 col-6">
+                    <label style="font-weight:bold;">Paid</label>
+            </div>
+            <% } %>
+      </td>
+
+</tr> 
+
  <% } %>
 </div>
 </div>

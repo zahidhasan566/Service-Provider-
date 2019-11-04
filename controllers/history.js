@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/feedback', function(req, res){
 
     userModel.getfeed(function(results){
-        //start here
+        console.log(results[0].customerid);
             res.render('history/feedback', {user: results});
         
     });

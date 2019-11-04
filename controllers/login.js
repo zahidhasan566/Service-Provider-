@@ -16,9 +16,10 @@ router.post('/', function (req, res) {
 		password: req.body.password
 	}
 	//console.log(user.username);
-	userModel.validate(user, function (status) {
+	userModel.validate(user, function (status,userid,type) {
 
-		if (status == 1) {
+
+		if (type == 1) {
 
 			req.session.username = req.body.username;
 			
@@ -30,25 +31,29 @@ router.post('/', function (req, res) {
 			});
 			res.redirect('/home');
 		}
-		else if (status == 4) {
-			req.session.username = req.body.username;
-			userModel.getId(req.session.username, function (result) {
-				req.session.userid = result[0].userid;
-				console.log(req.session.userid);
-
-				//console.log(req.cookie['userid']);
-			});
+		else if (type == 4) {
+			//res.cookie('username', req.body.username);
+			res.cookie('username',req.body.username);
+			res.cookie('userid',userid);
+		   var abc=req.cookies['userid'];
+   console.log(abc);
 
 			res.redirect('/adminhome');
-		} else if (status == 2) {
-			req.session.username = req.body.username;
-			userModel.getId(req.session.username, function (result) {
+		} else if (type == 2) {
+				 //res.cookie('username', req.body.username);
+				 res.cookie('username',req.body.username);
+				 res.cookie('userid',userid);
+				var abc=req.cookies['userid'];
+		console.log(abc);
+			//req.session.username = req.body.username;
+			//userModel.getId(username, function (result) {
 				//	console.log(result[0].userid);
-				req.session.userid = result[0].userid;
-				console.log(req.session.userid);
+				//req.session.userid = result[0].userid;
+				//console.log(req.session.userid);
 
 				//console.log(req.cookie['userid']);
-			});
+			//});
+
 		res.redirect('/customer');
 		}
 		else {
@@ -70,5 +75,3 @@ router.post('/', function (req, res) {
 
 
 module.exports = router;
-
-

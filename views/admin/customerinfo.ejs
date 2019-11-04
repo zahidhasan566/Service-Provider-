@@ -28,48 +28,49 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-          <a class="navbar-brand" href="#">Uptown</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-          </button>
-    
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <div class="bs-example">
-                  <div class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Userlist</a>
-                    <div class="dropdown-menu">
-                      <a href="../admin/serviceprovider" class="dropdown-item">Service Providers</a>
-                      <a href="../admin/customer" class="dropdown-item">Customers</a>
+      <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+          <div class="container">
+            <a class="navbar-brand" href="#">Uptown</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+              aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="oi oi-menu"></span> Menu
+            </button>
+      
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <div class="bs-example">
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Userlist</a>
+                      <div class="dropdown-menu">
+                        <a href="../admin/serviceprovider" class="dropdown-item">Service Providers</a>
+                        <a href="../admin/customer" class="dropdown-item">Customers</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li class="nav-item"><a href="admin/profile" class="nav-link">Profile</a></li>
-              <li class="nav-item"> <a href="agent.html" class="nav-link">Requests</a></li>
-              <li class="nav-item">
-                <div class="bs-example">
-                  <div class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
-                    <div class="dropdown-menu">
-                      <a href="#" class="dropdown-item">Feedbacks</a>
-                      <a href="#" class="dropdown-item">Messages</a>
-                      <a href="#" class="dropdown-item">User History</a>
+                </li>
+                <li class="nav-item"><a href="admin/profile" class="nav-link">Profile</a></li>
+               
+                <li class="nav-item">
+                  <div class="bs-example">
+                    <div class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
+                      <div class="dropdown-menu">
+                        <a href="../admin/feedback" class="dropdown-item">Feedbacks</a>
+                        <a href="../admin/message" class="dropdown-item">Messages</a>
+                        <a href="../admin/history" class="dropdown-item">User History</a>
+                        <a href="../admin/transaction" class="dropdown-item">Transaction</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-             
-              <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
-    
-            </ul>
+                </li>
+               
+                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+      
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
     <!-- END nav -->
     
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -113,6 +114,15 @@
                                 <div class="tab-content ml-1" id="myTabContent">
                                     <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                                         
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">UserId</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                <%= user[0].userid %>
+                                            </div>
+                                        </div>
+                                        <hr />
 
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">

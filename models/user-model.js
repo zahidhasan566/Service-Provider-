@@ -33,7 +33,7 @@ module.exports = {
 		db.getResults(sql, function (result) {
 
 			if (result.length > 0) {
-				callback(result[0].type);
+				callback(true,result[0].userid, result[0].type);
 			} else {
 
 				callback(false);
@@ -74,5 +74,3 @@ module.exports = {
 
 	search: function () { }
 }
-
-

@@ -82,7 +82,7 @@
 	            <h1 class="mb-4"> <br>Welcome home Admin  </h1>
 	           
             </div>
-          
+
         </div>
       </div>
       <div class="mouse">
@@ -97,29 +97,19 @@
         <div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
             <span class="subheading"></span>
-            <h2 class="mb-2">Your Customers List </h2>
+            <h2 class="mb-2">Your Service Provider List </h2>
+            <br> <h2 class="mb-2">Search Results </h2>
           </div>
         </div>
       </div>
-      <form method="post" action="../admin/searchcus" class="search-location mt-md-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 align-items-end">
-            <div class="form-group">
-              <div class="form-field">
-                <input type="text" class="form-control" placeholder="Searchs" name="search">
-                <button><span class="ion-ios-search"  ></span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+     
     </section>
 
 
    <div class="list-group" align="center" >
     <div class="col-md-12 heading-section text-center ftco-animate mb-5">
     <% for(var i=0; i< user.length; i++){ %>
- <a href="../admin/customerinfo/<%= user[i].userid %>" class="list-group-item list-group-item-action"><h4><%= user[i].username %></h4> <br> </a>
+ <a href="../admin/providerinfo/<%= user[i].userid %>" class="list-group-item list-group-item-action"><h4><%= user[i].username %></h4> <br> </a>
  <% } %>
 </div>
 </div>

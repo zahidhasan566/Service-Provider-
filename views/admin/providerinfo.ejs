@@ -28,15 +28,7 @@
   </head>
   <body>
     
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-      <div class="container">
-        <a class="navbar-brand" href="#">Uptown</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-          aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="oi oi-menu"></span> Menu
-        </button>
-  
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
           <div class="container">
             <a class="navbar-brand" href="#">Uptown</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -58,15 +50,16 @@
                   </div>
                 </li>
                 <li class="nav-item"><a href="admin/profile" class="nav-link">Profile</a></li>
-                <li class="nav-item"> <a href="agent.html" class="nav-link">Requests</a></li>
+               
                 <li class="nav-item">
                   <div class="bs-example">
                     <div class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
                       <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Feedbacks</a>
-                        <a href="#" class="dropdown-item">Messages</a>
-                        <a href="#" class="dropdown-item">User History</a>
+                        <a href="../admin/feedback" class="dropdown-item">Feedbacks</a>
+                        <a href="../admin/message" class="dropdown-item">Messages</a>
+                        <a href="../admin/history" class="dropdown-item">User History</a>
+                        <a href="../admin/transaction" class="dropdown-item">Transaction</a>
                       </div>
                     </div>
                   </div>
@@ -121,6 +114,15 @@
                                 <div class="tab-content ml-1" id="myTabContent">
                                     <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                                         
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">UserId</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                <%= user[0].userid %>
+                                            </div>
+                                        </div>
+                                        <hr />
 
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
@@ -185,20 +187,20 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                          <a href="../../admin/providerupdate/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Update</h4> </a>
-                          <a href="../../admin/warning/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Warning</h4> <br> </a>
-                          <a href="../../admin/disable/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Disable</h4> <br> </a>
-                          <a href="../../admin/message/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Message</h4> <br> </a>
-                  </div>
-             
+
                     
     
 
    
-    
+   
+    <div class="col-md-6">
+      <a href="../../admin/providerupdate/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Update</h4> </a>
+      <a href="../../admin/warning/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Warning</h4> <br> </a>
+      <a href="../../admin/disable/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Disable</h4> <br> </a>
+      <a href="../../admin/message/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Message</h4> <br> </a>
 </div>
-
+</div>
+</div>
 
 <script src="/js/jquery.min.js"></script>
   <script src="/js/jquery-migrate-3.0.1.min.js"></script>

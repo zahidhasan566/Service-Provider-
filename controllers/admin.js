@@ -199,6 +199,70 @@ var user = {
 });
 });
 
+router.get('/feedback', function(req, res){
+
+    userModel.getfeed(function(results){
+		
+		
+            res.render('history/feedback', {user:results});
+        
+    });
+});
+
+router.get('/message', function(req, res){
+
+    userModel.getmessage(function(results){
+		
+		
+            res.render('history/message', {user:results});
+        
+    });
+});
+
+router.get('/history', function(req, res){
+
+    userModel.gethistory(function(results){
+		
+		
+            res.render('history/history', {user:results});
+        
+    });
+});
+
+router.get('/transaction', function(req, res){
+
+    userModel.gettrans(function(results){
+		
+		
+            res.render('history/transaction', {user:results});
+        
+    });
+});
+
+router.post('/searchpro', function(req, res){
+	console.log('rted at 3000...');
+	var user={
+		ename:req.body.search
+	}
+	console.log(user.ename);
+	userModel.searchpro(user, function(results){
+
+		res.render('search/providersearch', {user: results});
+	});
+});
+
+router.post('/searchcus', function(req, res){
+	console.log('rted at 3000...');
+	var user={
+		ename:req.body.search
+	}
+	console.log(user.ename);
+	userModel.searchcus(user, function(results){
+
+		res.render('search/customersearch', {user: results});
+	});
+});
+
 
 
 module.exports = router;
