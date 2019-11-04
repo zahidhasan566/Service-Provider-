@@ -32,12 +32,12 @@
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="" value="<%= user[0].serviceid %>" name="serviceid" />
+                                            <input type="text" class="form-control" placeholder="" value="<%= user[0].serviceid %>" name="serviceid" disabled  />
                                         </div>
                                         
                                         
                                          <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="City *"  name="city" required />
+                                            <input type="text" class="form-control" placeholder=""  value= "<%= user[0].location %>" name="city" disabled />
                                         </div>
                                        
                                 
@@ -46,16 +46,18 @@
 
                                     <div class="col-md-6">
                                             <div class="form-group">
-                                                 <input type="text" class="form-control" placeholder="" value="<%= user[0].price %>" name="price"  />
+                                                 <input type="text" class="form-control" placeholder="" value="<%= user[0].amount %>" name="price" disabled />
                                                 </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" placeholder="Your appointment time *" name="time" required />
+                                            <input type="time" class="form-control" placeholder="" value="<%= user[0].time %>" name="time" disabled/>
                                         </div>
                                         
                                        
                             
                                       
-                                        <input type="submit" class="btnRegister" formaction="../request-appointment/<%= user[0].userid %>" value="Request"/>
+                                        <div class="col-md-16">
+                                            <a href="../customer/requested/delete" class="list-group-item list-group-item-action">Delete <br> </a>
+                                    </div>
                                      
                                     </div>
                                 </div>

@@ -80,13 +80,7 @@ module.exports = {
 		});
 	},
 
-    delete: function (id, callback) {
-        var sql = "delete from user where id=?";
-        db.execute(sql, [id], function (status) {
-            callback(status);
-        });
-
-    }
+    
 
 }
 
