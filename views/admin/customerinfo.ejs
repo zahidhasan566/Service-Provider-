@@ -28,56 +28,48 @@
   </head>
   <body>
     
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-      <div class="container">
-        <a class="navbar-brand" href="#">Uptown</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-          aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="oi oi-menu"></span> Menu
-        </button>
-  
-        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-          <div class="container">
-            <a class="navbar-brand" href="#">Uptown</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-              aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="oi oi-menu"></span> Menu
-            </button>
-      
-            <div class="collapse navbar-collapse" id="ftco-nav">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <div class="bs-example">
-                    <div class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Userlist</a>
-                      <div class="dropdown-menu">
-                        <a href="../admin/serviceprovider" class="dropdown-item">Service Providers</a>
-                        <a href="../admin/customer" class="dropdown-item">Customers</a>
-                      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#">Uptown</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+          </button>
+    
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <div class="bs-example">
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Userlist</a>
+                    <div class="dropdown-menu">
+                      <a href="../admin/serviceprovider" class="dropdown-item">Service Providers</a>
+                      <a href="../admin/customer" class="dropdown-item">Customers</a>
                     </div>
                   </div>
-                </li>
-                <li class="nav-item"><a href="admin/profile" class="nav-link">Profile</a></li>
-                <li class="nav-item"> <a href="agent.html" class="nav-link">Requests</a></li>
-                <li class="nav-item">
-                  <div class="bs-example">
-                    <div class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
-                      <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Feedbacks</a>
-                        <a href="#" class="dropdown-item">Messages</a>
-                        <a href="#" class="dropdown-item">User History</a>
-                      </div>
+                </div>
+              </li>
+              <li class="nav-item"><a href="admin/profile" class="nav-link">Profile</a></li>
+              <li class="nav-item"> <a href="agent.html" class="nav-link">Requests</a></li>
+              <li class="nav-item">
+                <div class="bs-example">
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others</a>
+                    <div class="dropdown-menu">
+                      <a href="#" class="dropdown-item">Feedbacks</a>
+                      <a href="#" class="dropdown-item">Messages</a>
+                      <a href="#" class="dropdown-item">User History</a>
                     </div>
                   </div>
-                </li>
-               
-                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
-      
-              </ul>
-            </div>
+                </div>
+              </li>
+             
+              <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+    
+            </ul>
           </div>
-        </nav>
+        </div>
+      </nav>
     <!-- END nav -->
     
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -86,7 +78,7 @@
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           
             <div class="text text-center">
-              <h1 class="mb-4"> <br>Service Provider Information </h1>
+              <h1 class="mb-4"> <br>Customer Information </h1>
 
              
             </div>
@@ -105,7 +97,7 @@
         <div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
             <span class="subheading"></span>
-            <h2 class="mb-2"> Service Provider -- <%= user[0].username %>  </h2>
+            <h2 class="mb-2"> Customer -- <%= user[0].username %>  </h2>
           </div>
         </div>
       </div>
@@ -172,10 +164,10 @@
                                         <hr />
                                            <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">skill</label>
+                                                <label style="font-weight:bold;">location</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                 <%= user[0].skill %>  
+                                                 <%= user[0].location %>  
                                             </div>
                                         </div>
                                         <hr />
@@ -186,10 +178,10 @@
                         </div>
 
                         <div class="col-md-6">
-                          <a href="../../admin/providerupdate/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Update</h4> </a>
-                          <a href="../../admin/warning/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Warning</h4> <br> </a>
+                         
+                          <a href="../../admin/cuswarning/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Warning</h4> <br> </a>
                           <a href="../../admin/disable/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Disable</h4> <br> </a>
-                          <a href="../../admin/message/<%= user[0].userid %>" class="list-group-item list-group-item-action"><h4>Message</h4> <br> </a>
+                         
                   </div>
              
                     

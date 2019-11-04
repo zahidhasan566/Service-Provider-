@@ -19,6 +19,18 @@ module.exports = {
                     });
                 },
 
+	getprofile : function(id, callback){
+		var sql = "select * from user where userid="+id;
+
+		db.getResults(sql, function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 
 
     validate: function (user, callback) {

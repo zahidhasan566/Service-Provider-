@@ -36,6 +36,23 @@ console.log(id);
 						});
 					},
 				
+	getproupdate: function(id, callback){
+							console.log(id);
+							
+								console.log(id);
+										var sql = "select * from serviceprovider where userid='"+id+"' " ; 
+										db.getResults(sql, function(result){
+											
+											if( result.length > 0 ){
+												
+												callback(result);
+								
+											}else{
+												callback([]);
+											}
+										});
+									},
+							
 	
 	
 	getprovider : function(callback){
@@ -66,8 +83,14 @@ console.log(id);
 	
 
 
-	insert : function(user, callback){
-	    var sql = "insert into user values('','" + user.ename + "','" + user.cname + "','" + user.contact + "','" + user.username + "', '" + user.password + "')";
+	warning : function(user, callback){
+	    var sql = "insert into notice values('','" + user.userid + "','" +user.id + "','" + user.warning + "')";
+		db.execute(sql, function(status){
+			callback(status);
+		});
+	},
+	message : function(user, callback){
+	    var sql = "insert into message values('','" + user.userid + "','" +user.id + "','" + user.message + "')";
 		db.execute(sql, function(status){
 			callback(status);
 		});
@@ -80,14 +103,53 @@ console.log(id);
 			callback(status);
 		});
 	},
-	delete : function(id, callback){
-	    var sql = "delete from user where id="+id;
+
+	proupdate : function(user, callback){
+		console.log(user.skill);
+		var sql = "update serviceprovider set skill='" + user.skill + "' where userid=" + user.id;
+
+		 db.execute(sql, function (status) {
+			 console.log(status);
+			callback(status);
+		});
+	},
+	disable : function(id, callback){
+	    var sql = "delete from user where userid="+id;
 		db.execute(sql, function(status){
 			callback(status);
 		});
 	},
 
-	search: function(){}
+	getcustomer : function(callback){
+		var sql = "select * from user where type= 2";
+
+		db.getResults(sql, function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
+
+	getByIdcus: function(id, callback){
+		console.log(id);
+		
+			console.log(id);
+					var sql = "select user.userid, user.username , user.email, user.phone, user.gender, user.city, customer.location FROM user join customer on user.userid='"+id+"'  and customer.userid='"+id+"' " ; 
+					db.getResults(sql, function(result){
+						
+						if( result.length > 0 ){
+							
+							callback(result);
+			
+						}else{
+							callback([]);
+						}
+					});
+				},
 }
 
 
