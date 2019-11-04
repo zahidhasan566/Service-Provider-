@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Appointment </title>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/register.css">
+</head>
+<body>
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>Don't have an appointment Create on here!</p>
+                        
+                 </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" >Appointment</a>
+                            </li>
+                            
+                        </ul>
+                         <form method="post">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Appointment</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="" value="<%= user[0].serviceid %>" name="serviceid" disabled  />
+                                        </div>
+                                        
+                                        
+                                         <div class="form-group">
+                                            <input type="text" class="form-control" placeholder=""  value= "<%= user[0].location %>" name="city" disabled />
+                                        </div>
+                                       
+                                
+                                       
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                 <input type="text" class="form-control" placeholder="" value="<%= user[0].amount %>" name="price" disabled />
+                                                </div>
+                                        <div class="form-group">
+                                            <input type="time" class="form-control" placeholder="" value="<%= user[0].time %>" name="time" disabled/>
+                                        </div>
+                                        
+                                       
+                                        <div class="col-md-16">
+                                            <a href="../customer/give/feedback/<%= user[0].serviceid %>" class="list-group-item list-group-item-action">Feedback <br> </a>
+                                    </div>
+                                      
+                                        <div class="col-md-16">
+                                            <a href="../customer/requested/delete" class="list-group-item list-group-item-action">Delete <br> </a>
+                                    </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                             </form>
+
+
+                             
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>            
+</body>
+</html>                  
+

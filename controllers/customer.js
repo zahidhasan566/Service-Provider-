@@ -3,6 +3,7 @@ var userModel = require('./../models/customer-model');
 var serviceModel = require('./../models/serviceprovider');
 var appointmentModel = require('./../models/appointment-model');
 var noticeModel = require('./../models/notice-model');
+var feedbackModel = require('./../models/feedback-model');
 
 
 var router = express.Router();
@@ -39,7 +40,7 @@ router.get('/completed', function(req, res){
 	
     appointmentModel.getByIdCom(req.cookies['userid'],function(results){
         
-			res.render('appointment/requested', {user: results});
+			res.render('appointment/completed', {user: results});
 			
         
     });
@@ -146,7 +147,7 @@ router.get('/update', function(req, res){
 
 });
 
-router.post('/update/', function(req, res){
+router.post('/update', function(req, res){
 	
 	var user = {
 		username: req.body.username,
@@ -191,6 +192,37 @@ router.get('/notice', function(req, res){
 
 });
 
+router.get('/give/feedback/:id', function(req, res){
+
+	
+        //console.log(results[0].servicename);
+		res.render('feedback/givefeedback');
+        	
+
+
+});
+
+router.post('/give/feedback/:id', function(req, res){
+	//var cid=req.cookies['userid'];
+	var feedback = {
+		cid :req.cookies['userid'],
+		serviceid: req.params.id,
+		message :req.body.message
+		
+		
+	};
+
+	
+
+	feedbackModel.insert(feedback, function(status){
+		console.log(status);
+		if(status){
+			res.redirect('/customer');
+		}else{
+			res.send("feedback insert error");
+		}
+	});
+});
 
 
 module.exports = router;
