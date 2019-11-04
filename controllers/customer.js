@@ -13,8 +13,9 @@ router.get('/appointment', function (req, res) {
 });
 
 router.get('/profile', function(req, res){
-
-	userModel.getprofile(id, function(results){
+    var abc= req.cookies['userid'];
+    console.log(abc);
+	userModel.getprofile(abc, function(results){
 
 		res.render('customer-home/profile', {user: results});		
 	});

@@ -18,7 +18,7 @@ module.exports = {
 
 
 	getprofile : function(id, callback){
-		var sql = "select * from user where type= 4";
+		var sql = "select * from user where userid="+id;
 
 		db.getResults(sql, function(results){
 
