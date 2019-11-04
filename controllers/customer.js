@@ -12,7 +12,55 @@ router.get('/appointment', function (req, res) {
     res.render('appointment/index.ejs');
 });
 
+router.get('/serviceprovider', function(req, res){
 
+    userModel.getprovider(function(results){
+        
+            res.render('customer-home/serviceprovider', {user: results});
+        
+    });
+});
+
+router.get('/providerinfo/:id', function(req, res){
+
+	userModel.getById(req.params.id, function(results){
+
+		res.render('customer-home/providerinfo', {user: results});		
+	});
+
+});
+
+router.get('/request-appointment/:id', function(req, res){
+
+	userModel.getupdate(req.params.id, function(results){
+		res.render('admin/updateprofile', {user: results});		
+	});
+
+});
+
+router.post('/request-appointment/:id', function(req, res){
+	
+	var user = {
+		username: req.body.username,
+		phone: req.body.phone,
+		password: req.body.password,
+		email: req.body.email,
+		gender: req.body.gender,
+		city: req.body.city,
+		id: req.params.id
+	};
+
+	
+
+	userModel.update(user, function(status){
+		console.log(status);
+		if(status){
+			res.redirect('/admin/profile');
+		}else{
+			res.redirect('/adminhome');
+		}
+	});
+});
 
 
 module.exports = router;

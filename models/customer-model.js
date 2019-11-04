@@ -2,20 +2,22 @@ var db = require('./db');
 
 module.exports = {
 
-    getById: function (id, callback) {
-
-        var sql = "select * from user where id=?";
-        db.getResults(sql, [id], function (result) {
-
-            //console.log(result);
-            if (result.length > 0) {
-                callback(result[0]);
-            } else {
-                callback([]);
-            }
-        });
-    },
-
+    getById: function(id, callback){
+        console.log(id);
+        
+            console.log(id);
+                    var sql = "select user.userid, user.username , user.email, user.phone, user.gender, user.city, serviceprovider.skill FROM user join serviceprovider on user.userid='"+id+"'  and serviceprovider.userid='"+id+"' " ; 
+                    db.getResults(sql, function(result){
+                        
+                        if( result.length > 0 ){
+                            
+                            callback(result);
+            
+                        }else{
+                            callback([]);
+                        }
+                    });
+                },
 
 
 
@@ -53,6 +55,18 @@ module.exports = {
         });
 
     },
+    getprovider : function(callback){
+		var sql = "select * from user where type= 1";
+
+		db.getResults(sql, function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 
     delete: function (id, callback) {
         var sql = "delete from user where id=?";
