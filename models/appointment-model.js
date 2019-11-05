@@ -16,7 +16,7 @@ module.exports = {
             
                         }else{
                             
-                            callback([]);
+                            callback("");
                         }
                     });
                 },
@@ -34,7 +34,7 @@ module.exports = {
                         
                                     }else{
                                         
-                                        callback([]);
+                                        callback("");
                                     }
                                 });
                             },
@@ -66,7 +66,7 @@ module.exports = {
             
                         }else{
                             
-                            callback([]);
+                            callback("");
                         }
                     });
                 },

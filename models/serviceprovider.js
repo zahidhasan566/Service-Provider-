@@ -15,6 +15,19 @@ module.exports={
             }
         });
     },
+    getByServiceId: function(id, callback){
+
+        var sql = "select * from service where serviceid="+id;
+        db.getResults(sql, function(result){
+
+            if(result.length > 0 ){
+               // console.log(result[0].userid);
+                callback(result);
+            }else{
+                callback("");
+            }
+        });
+    },
     getResults: function(sql, callback){
 
         var connection = getConnection();

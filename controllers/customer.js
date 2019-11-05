@@ -4,6 +4,7 @@ var serviceModel = require('./../models/serviceprovider');
 var appointmentModel = require('./../models/appointment-model');
 var noticeModel = require('./../models/notice-model');
 var feedbackModel = require('./../models/feedback-model');
+var messageModel = require('./../models/message-model');
 
 
 var router = express.Router();
@@ -29,8 +30,15 @@ router.get('/serviceprovider', function(req, res){
 router.get('/requested', function(req, res){
 	
     appointmentModel.getByIdReq(req.cookies['userid'],function(results){
-			
+		if(results!="")
+		{
 			res.render('appointment/requested', {user: results});
+		}
+		else
+		{
+			res.send("No appointments");
+		}	
+			
 			
         
     });
@@ -39,8 +47,16 @@ router.get('/requested', function(req, res){
 router.get('/completed', function(req, res){
 	
     appointmentModel.getByIdCom(req.cookies['userid'],function(results){
-        
+		
+		if(results!="")
+		{
 			res.render('appointment/completed', {user: results});
+		}
+		else
+		{
+			res.send("No appointments");
+		}	
+			
 			
         
     });
@@ -49,8 +65,17 @@ router.get('/completed', function(req, res){
 router.get('/upcomming', function(req, res){
 	
     appointmentModel.getByIdUp(req.cookies['userid'],function(results){
-        
+		
+		if(results!="")
+		{
 			res.render('appointment/upcomming', {user: results});
+		}
+		else
+		{
+			res.send("No appointments");
+		}	
+			
+			
 			
         
     });
@@ -204,14 +229,26 @@ router.get('/give/feedback/:id', function(req, res){
 
 router.post('/give/feedback/:id', function(req, res){
 	//var cid=req.cookies['userid'];
+	
+	//console.log(req.params.id);
+	serviceModel.getByServiceId(req.params.id,function(result){
+		
+		
+		res.cookie('serviceid',result[0].userid);
+			//console.log(result[0].userid);
+		
+			
+	});
+
 	var feedback = {
 		cid :req.cookies['userid'],
-		serviceid: req.params.id,
+		serviceid: req.cookies['serviceid'],
 		message :req.body.message
 		
 		
 	};
-
+	
+	console.log(req.cookies['serviceid']);
 	
 
 	feedbackModel.insert(feedback, function(status){
@@ -245,6 +282,54 @@ router.get('/service-feedback/:id', function(req, res){
 
 
 });
+
+router.get('/sms', function(req, res){
+
+	
+	messageModel.getById(req.cookies['userid'],function(results){
+		console.log(req.cookies['userid']);
+		if(results!="")
+		{
+			res.render('customer-home/sms', {message: results});
+		}
+		else
+		{
+			res.send("No messages");
+		}		
+	});
+	
+		
+
+
+});
+
+router.post('/sms', function(req, res){
+	//var cid=req.cookies['userid'];
+	var message = {
+		sender :req.cookies['userid'],
+		receiver: req.body.sender,
+		message :req.body.message
+		
+		
+	};
+	console.log("sender: "+message.sender);
+	//console.log("receiver: "+message.receiver);
+	console.log("message: "+req.body.sender);
+	console.log("message: "+message.message);
+	
+
+	messageModel.update(message, function(status){
+		console.log(status);
+		if(status){
+			res.redirect('/customer');
+		}else{
+			res.send("message update error");
+		}
+	});
+});
+
+
+
 
 
 module.exports = router;
