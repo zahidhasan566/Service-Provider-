@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Register </title>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/register.css">
+</head>
+<body>
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>UPDATE YOUR PROFILE </p>
+                        
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" >Service Provider</a>
+                            </li>
+
+                        </ul>
+                         <form method="post">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">WELCOME <%= user[0].username %> </h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            USRNAME :  <input type="text"  value=" <%= user[0].username %>" name="username"></td>
+                                        </div>
+                                         <div class="form-group">
+                                             EMAIL:  <input type="text"  value=" <%= user[0].email %>" name="email"></td>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                             PHONE:  <input type="text"  value="  <%= user[0].phone %>" name="phone"></td>
+                                        </div>
+                                        <div class="form-group">
+                                             GENDER:  <input type="text"  value=" <%= user[0].gender %>" name="gender"></td>
+                                        </div>
+                                        <div class="form-group">
+                                            CITY:  <input type="text"  value=" <%= user[0].city %>" name="city"></td>
+                                        </div>
+                                        <div class="form-group">
+                                            PASSWORD:  <input type="text"  value="<%= user[0].password %>  " name="password"></td>
+                                        </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                      
+                                        <input type="submit" class="btnRegister" formaction="profile/update" value="UPDATE  "/> <br>
+                                            <input type="submit" class="btnRegister" formaction="profile/delete" value="DELETE "/>
+                                    </div>
+                                        <div class="form-group">
+
+
+                                            <a href="../homesp" class="nav-link">Back </a>
+
+                                        </div>
+                                </div>
+                            </div>
+                             </form>
+
+
+                             
+
+
+</body>
+</html>                  
+
